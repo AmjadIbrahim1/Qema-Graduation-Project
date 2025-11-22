@@ -1,0 +1,109 @@
+@startuml
+|AI Services|
+start
+:Provide Personalized Lessons;
+:Provide Chatbot Assistant;
+:Generate Smart Exams;
+:Analyze Student Weaknesses;
+|AI Services|note right: These services are invoked by System\nduring various flows
+stop
+
+|Student|
+start
+:Register;
+:Confirm email;
+:Login;
+:View Courses;
+if (Select course?) then (yes)
+  :Enroll in course;
+else (no)
+  :Browse more courses;
+endif
+:Open course;
+fork
+  :Watch lessons / stream video;
+fork again
+  :Download materials (PDF/Slides);
+fork again
+  :Join live meeting / class;
+end fork
+:Start exam;
+if (Exam requires recording?) then (yes)
+  :Start recording (screen/camera) -> Save exam record;
+endif
+if (Auto-gradable?) then (yes)
+  :Take auto-graded quiz;
+  :Submit answers;
+  :Receive auto-grade;
+  if (Needs manual review?) then (yes)
+    -> [send to teacher] 
+  endif
+else (no)
+  :Submit for manual grading;
+endif
+:View grades & feedback;
+:Use chatbot tutor (AI) for help;
+:Receive weakness report (AI);
+:Earn coins / gamification rewards;
+stop
+
+|Teacher|
+start
+:Register;
+:Login;
+:Create course;
+:Upload lesson materials (video/PDF);
+:Schedule live classes;
+:Create / schedule exams;
+if (Exam submissions to grade?) then (yes)
+  :Review / manually grade submissions;
+  :Provide feedback;
+endif
+:Track student progress;
+:View weakness insights (from AI);
+stop
+
+|Parent|
+start
+:Register;
+:Login;
+:Link to child/student account;
+:Monitor student progress;
+:View attendance;
+:View grades;
+:Receive alerts (low progress / missing assignments);
+stop
+
+|Admin|
+start
+:Register;
+:Login;
+:Manage users (create/update/delete);
+:Assign roles / permissions;
+:Monitor system analytics (usage, errors, storage);
+:Configure integrations (Google Meet, Payment, AI);
+stop
+
+' System swimlane coordinates flows between actors and AI Services
+|System|
+start
+:Authenticate users;
+:Serve dashboard (courses, progress, notifications);
+if (Enrollment requires approval?) then (yes)
+  :Send enrollment request to Instructor;
+  if (Instructor approves) then (yes)
+    :Enroll student;
+  else (no)
+    :Notify student (rejected);
+  endif
+else (no)
+  :Auto-enroll student;
+endif
+
+:Store structured data (users, courses, grades);
+:Store unstructured files (videos, PDFs, recordings);
+:Trigger AI services for personalization & reports;
+:Send notifications (email / push);
+:Expose API / Mobile sync;
+stop
+@enduml
