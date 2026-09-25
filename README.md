@@ -14,7 +14,23 @@
 
 ## 📌 Project Overview
 
-**Qema Graduation Project** is the central documentation repository for a graduation project. It contains the full **Software Requirements Specification (SRS)**, design documents, diagrams, and project management artifacts — covering everything from the initial proposal to testing and user documentation.
+**Qema Graduation Project** is the **central documentation repository** for the **Qema** project — an AI-powered Learning Management System (LMS). It contains the full **Software Requirements Specification (SRS)**, design documents, diagrams, and project management artifacts — covering everything from the initial proposal to testing and user documentation.
+
+**Its role in the project:** this repository is the documentation hub of Qemma. It defines what the system should do (SRS), how it is designed (ERD, use cases), and how it is planned, tested, and deployed — while the actual implementation lives in the backend and frontend repositories.
+
+---
+
+## 🏗️ Project Architecture — The Qemma Ecosystem
+
+Qemma is **one project split across three repositories**:
+
+| Repository | Role in the project | Link |
+|------------|--------------------|------|
+| **Qema-Graduation-Project** *(this repo)* | Documentation hub — SRS, ERD, timelines, testing & user manual | [Open](https://github.com/AmjadIbrahim1/Qema-Graduation-Project) |
+| **qemma-backend** | Backend API & real-time server (Node.js, Express, PostgreSQL, Redis) | [Open](https://github.com/AmjadIbrahim1/qemma-backend) |
+| **qemma-frontend** | Frontend web application (React, Redux Toolkit, WebRTC) | [Open](https://github.com/AmjadIbrahim1/qemma-frontend) |
+
+> 💻 The implementation of this system is split into [qemma-backend](https://github.com/AmjadIbrahim1/qemma-backend) (API server) and [qemma-frontend](https://github.com/AmjadIbrahim1/qemma-frontend) (web app).
 
 ---
 
